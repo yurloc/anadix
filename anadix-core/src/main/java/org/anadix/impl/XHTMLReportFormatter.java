@@ -37,7 +37,7 @@ public class XHTMLReportFormatter extends DefaultReportFormatter {
 			doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 			Node body = createXHTMLHeading(report, doc);
 			
-			body.appendChild(doc.createElement("h1")).setTextContent("Overal status");
+			body.appendChild(doc.createElement("h1")).setTextContent("Overall status");
 			body.appendChild(createSummaryTable(report, doc));
 			
 			if (report.getManuals().size() > 0) {
