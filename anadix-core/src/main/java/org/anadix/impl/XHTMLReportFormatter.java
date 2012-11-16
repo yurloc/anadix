@@ -143,7 +143,7 @@ public class XHTMLReportFormatter extends DefaultReportFormatter {
 	
 	private static Node createResultTable(Collection<ReportItem> items, Document doc) {
 		Element resultTable = doc.createElement("table");
-		resultTable.setAttribute("style", "border-collapse: separate; border-spacin: 5px 20px;");
+		resultTable.setAttribute("style", "border-collapse: separate; border-spacing: 5px 20px;");
 		
 		for (ReportItem item : items) {
 			resultTable.appendChild(createResultRow(item, doc));
