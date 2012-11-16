@@ -36,7 +36,7 @@ public abstract class Section508ReportItem extends AbstractReportItem {
 	 *
 	 * @param status ReportItem status
 	 * @param key key to find description under (in ItemText resource bundle)
-	 * @param args arguments to insert into descritption
+	 * @param args arguments to insert into description
 	 */
 	public Section508ReportItem(ItemStatus status, String key, Object... args) {
 		super(status, formatFromBundle(itemStatuses, key, args));

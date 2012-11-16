@@ -18,7 +18,8 @@ package org.anadix.section508.report;
 import org.anadix.ItemStatus;
 
 /**
- * Manual ReportItem that indicates that style is used in document and it needs to be checked whether the document is readable without the stylesheet.
+ * Manual ReportItem that indicates that style is used in document and it needs to be checked whether the document is readable
+ * without the stylesheet.
  *
  * @author tomason
  * @version $Id: $
