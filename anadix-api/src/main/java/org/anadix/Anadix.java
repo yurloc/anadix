@@ -231,7 +231,7 @@ public final class Anadix {
 		try {
 			formatterClass = Anadix.<ReportFormatter>createClass(clazz);
 		} catch (InstantiationException ex) {
-			logger.warn("Unable to set ConditionSet " + clazz, ex);
+			logger.warn("Unable to set Formatter " + clazz, ex);
 			return false;
 		}
 
