@@ -35,6 +35,30 @@ import org.drools.io.ResourceFactory;
  * @version $Id: $
  */
 public class Section508 implements ConditionSet {
+
+	private final Collection<DroolsResource> droolsResources = new ArrayList<DroolsResource>();
+
+	private String paragraphResourceName(Paragraph p) {
+		return String.format("paragraph-%s.drl", p.toString().toLowerCase());
+	}
+
+	private void addResource(String resource) {
+		droolsResources.add(new DroolsResource(
+			ResourceFactory.newClassPathResource(resource, getClass()),
+			ResourceType.DRL));
+	}
+
+	public Section508() {
+		this(Paragraph.values());
+	}
+
+	public Section508(Paragraph... paragraphs) {
+		addResource("common.drl");
+		for (Paragraph p : paragraphs) {
+			addResource(paragraphResourceName(p));
+		}
+	}
+
 	/**
 	 *	{@inheritDoc}
 	 *
@@ -50,7 +74,6 @@ public class Section508 implements ConditionSet {
 	 * @return a {@link java.util.Collection} object.
 	 */
 	public Collection<DroolsResource> getDroolsResources() {
-		Collection<DroolsResource> result = new ArrayList<DroolsResource>();
 
 		String[] resources = new String[] {
 				"commons.drl",
@@ -73,13 +96,11 @@ public class Section508 implements ConditionSet {
 		};
 
 		for (String resource : resources) {
-			result.add(new DroolsResource(
-					ResourceFactory.newClassPathResource(resource, getClass()),
-					ResourceType.DRL));
+			
 		}
 
 
-		return result;
+		return droolsResources;
 	}
 
 	/**
